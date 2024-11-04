@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/dotenv": "^8.2.3",
+    "dotenv": "^16.4.5",
     "koa": "^2.15.3",
     "koa-router": "^13.0.1",
     "pg": "^8.13.1",
