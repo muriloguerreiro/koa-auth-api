@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint . && echo Linting completed!"
   },
   "keywords": [],
   "author": "",
@@ -17,10 +18,16 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@eslint/js": "^9.14.0",
     "@types/koa": "^2.15.0",
     "@types/koa-router": "^7.4.8",
     "@types/node": "^22.8.7",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "eslint": "^9.14.0",
+    "globals": "^15.11.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
   }
 }
