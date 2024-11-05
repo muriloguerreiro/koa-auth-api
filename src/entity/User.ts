@@ -8,7 +8,7 @@ export class User {
     id!: number;
 
     @Column({ type: "varchar", length: 255 })
-    name: string;
+    name?: string;
 
     @Column({ type: "varchar", length: 255, unique: true })
     email: string;
@@ -31,11 +31,10 @@ export class User {
     @DeleteDateColumn({ name: "deleted_at", nullable: true })
     deletedAt?: Date | null;
 
-    constructor(name: string, email: string, password:string, role: UserRole = "user") {
-        this.name = name;
+    constructor(email: string, password: string) {
         this.email = email;
         this.password = password;
-        this.role = role;
+        this.role = "user";
         this.isOnboarded = false;
     }
 }
