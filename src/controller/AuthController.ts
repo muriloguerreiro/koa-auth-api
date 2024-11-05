@@ -32,7 +32,7 @@ export class AuthController {
                 response.status = 401;
                 return { error: error.message };
             } else {
-                throw new BadRequestError(error.message);
+                return { error: error.message };
             }
         }
     }

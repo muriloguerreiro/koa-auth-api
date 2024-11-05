@@ -2,9 +2,11 @@ import Koa from 'koa';
 import { AppDataSource } from './data-source';
 import { createKoaServer } from 'routing-controllers';
 import { AuthController } from './controller/AuthController';
+import { CognitoAuthMiddleware } from './middleware/CognitoAuthMiddleware';
 
 const app = createKoaServer({
     controllers: [AuthController],
+    middlewares: [CognitoAuthMiddleware]
 })
 
 AppDataSource.initialize()
