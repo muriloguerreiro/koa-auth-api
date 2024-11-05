@@ -17,10 +17,14 @@ export class UserService {
 
     async createUser(email: string, password: string): Promise<void> {
         await AppDataSource.transaction(async (transactionalEntityManager) => {
-            const user = new User(email);
-            await transactionalEntityManager.save(user);
+            const cognitoUserId = await this.authService.register(email, password);
 
-            await this.authService.register(email, password);
+            const user = new User(cognitoUserId, email);
+            await transactionalEntityManager.save(user);
         })
+    }
+
+    async getUserById(id: string): Promise<User | null> {
+        return await this.userRepository.findOneBy({ id });
     }
 }

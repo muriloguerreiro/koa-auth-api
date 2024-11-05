@@ -10,14 +10,20 @@ export class AuthService {
         });
     }
 
-    async register(email: string, password: string): Promise<void> {
+    async register(email: string, password: string): Promise<string> {
         return new Promise((resolve, reject) => {
             this.userPool.signUp(email, password, [], [], (err, result) => {
                 if (err) {
                     reject(err);
                     return;
                 }
-                resolve();
+
+                if (result && result.userSub) {
+                    const userSub = result.userSub;
+                    resolve(userSub);
+                } else {
+                    reject(new Error('User Sub not found.'));
+                }
             });
         });
     }

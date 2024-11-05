@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm";
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, PrimaryColumn } from "typeorm";
 
 export type UserRole = "admin" | "user";
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn({ name: "id" })
-    id!: number;
+    @PrimaryColumn()
+    id: string;
 
     @Column({ type: "varchar", length: 255, nullable: true })
     name?: string;
@@ -28,7 +28,8 @@ export class User {
     @DeleteDateColumn({ name: "deleted_at", nullable: true })
     deletedAt?: Date | null;
 
-    constructor(email: string) {
+    constructor(id: string, email: string) {
+        this.id = id;
         this.email = email;
         this.role = "user";
         this.isOnboarded = false;

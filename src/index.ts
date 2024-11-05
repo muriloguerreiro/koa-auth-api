@@ -3,9 +3,10 @@ import { AppDataSource } from './data-source';
 import { createKoaServer } from 'routing-controllers';
 import { AuthController } from './controller/AuthController';
 import { CognitoAuthMiddleware } from './middleware/CognitoAuthMiddleware';
+import { UserController } from './controller/UserController';
 
 const app = createKoaServer({
-    controllers: [AuthController],
+    controllers: [AuthController,UserController],
     middlewares: [CognitoAuthMiddleware]
 })
 
