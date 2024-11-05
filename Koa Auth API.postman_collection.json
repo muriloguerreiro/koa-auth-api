@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "1ed9778a-8d86-4be4-bf58-14dd9e210028",
+		"name": "Koa Auth API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11755647"
+	},
+	"item": [
+		{
+			"name": "SignInOrRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"murilobadoco.dev@gmail.com\",\r\n    \"password\":\"Murilo2!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"murilobadoco.dev@gmail.com\",\r\n    \"confirmationCode\":\"727613\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/confirm-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"confirm-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJpWng4WFBXUGhrejEzNW9ESlQrSjdvUzBZZUZRRHFBcnBIWVg1VzBmZHgwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2MTRiNDVkMC00MDcxLTcwYTItMmRjZS1kZjVjOTA1OGEzNDIiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl85U0NlUDJDZ3oiLCJjbGllbnRfaWQiOiIzMWMwdnI5bm45amUxMGtxb2JxOWk1azhxMCIsIm9yaWdpbl9qdGkiOiIzM2YwN2VhMS0wYmIxLTQ0MmQtOTgwYy01ZWFjOWIzYjdkZjQiLCJldmVudF9pZCI6IjVkY2ZhYjAwLTk3NGMtNDg5Mi1iZmNiLWQ1NTVjZTdkOWM1YiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MzA4MjM4NDksImV4cCI6MTczMDgyNzQ0OSwiaWF0IjoxNzMwODIzODQ5LCJqdGkiOiJhZDM3ZmNlZS02NTg2LTQ2OTktYTZkNC0yYzAwMzIzNmFiZWUiLCJ1c2VybmFtZSI6IjYxNGI0NWQwLTQwNzEtNzBhMi0yZGNlLWRmNWM5MDU4YTM0MiJ9.O63_09zEmpu8MnNuzRdq9I0stLtXGq7vRrZh6FZjP1C5_MWxUmEJ6763y_3SwS-iXRtciMj_BULNJEMfyTPncPtZgkPWHQ6cuW2RrkIeV8xglCQ7VCo0dtDzX6MbzSAR_7IWDHDZZ4AZjOm9wHLHDTLvfPqi4MENJ3X80jtEp-XrKpBhI5aIJ6Hh8quyTbo9Veb29ntCuXvRyD0Mfc_e91aiD4wHHpa_VLpoEgETMEaPzawP39_JRBvO1_U7k6wG40pIo3JeJpuNDf6pGvf3VYytdod90PXn1cSYU4Qvn5vdJIbSGa4UXmtynYk1ASiX1xbLlDyuA7qMuqbK5JVztQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"murilobadoco.dev@gmail.com\",\r\n    \"password\":\"Murilo1!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJpWng4WFBXUGhrejEzNW9ESlQrSjdvUzBZZUZRRHFBcnBIWVg1VzBmZHgwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2MTRiNDVkMC00MDcxLTcwYTItMmRjZS1kZjVjOTA1OGEzNDIiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl85U0NlUDJDZ3oiLCJjbGllbnRfaWQiOiIzMWMwdnI5bm45amUxMGtxb2JxOWk1azhxMCIsIm9yaWdpbl9qdGkiOiIzM2YwN2VhMS0wYmIxLTQ0MmQtOTgwYy01ZWFjOWIzYjdkZjQiLCJldmVudF9pZCI6IjVkY2ZhYjAwLTk3NGMtNDg5Mi1iZmNiLWQ1NTVjZTdkOWM1YiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MzA4MjM4NDksImV4cCI6MTczMDgyNzQ0OSwiaWF0IjoxNzMwODIzODQ5LCJqdGkiOiJhZDM3ZmNlZS02NTg2LTQ2OTktYTZkNC0yYzAwMzIzNmFiZWUiLCJ1c2VybmFtZSI6IjYxNGI0NWQwLTQwNzEtNzBhMi0yZGNlLWRmNWM5MDU4YTM0MiJ9.O63_09zEmpu8MnNuzRdq9I0stLtXGq7vRrZh6FZjP1C5_MWxUmEJ6763y_3SwS-iXRtciMj_BULNJEMfyTPncPtZgkPWHQ6cuW2RrkIeV8xglCQ7VCo0dtDzX6MbzSAR_7IWDHDZZ4AZjOm9wHLHDTLvfPqi4MENJ3X80jtEp-XrKpBhI5aIJ6Hh8quyTbo9Veb29ntCuXvRyD0Mfc_e91aiD4wHHpa_VLpoEgETMEaPzawP39_JRBvO1_U7k6wG40pIo3JeJpuNDf6pGvf3VYytdod90PXn1cSYU4Qvn5vdJIbSGa4UXmtynYk1ASiX1xbLlDyuA7qMuqbK5JVztQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"murilobadoco.dev@gmail.com\",\r\n    \"password\":\"Murilo1!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJpWng4WFBXUGhrejEzNW9ESlQrSjdvUzBZZUZRRHFBcnBIWVg1VzBmZHgwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2MTRiNDVkMC00MDcxLTcwYTItMmRjZS1kZjVjOTA1OGEzNDIiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl85U0NlUDJDZ3oiLCJjbGllbnRfaWQiOiIzMWMwdnI5bm45amUxMGtxb2JxOWk1azhxMCIsIm9yaWdpbl9qdGkiOiI4NGU5ZDI2NC1iN2U1LTQ4ZjItODY1Ni05NmQyOGNlNDJkYmUiLCJldmVudF9pZCI6IjQ0NzkzNGFhLTkwNjMtNGFjNS1hYmRjLWMyYmRhYzUwYzdmOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MzA4MjQ1OTEsImV4cCI6MTczMDgyODE5MSwiaWF0IjoxNzMwODI0NTkxLCJqdGkiOiIwNzBmYmUxYi1iZTIwLTQyODAtYmFlNC00ZWI0OGNhOTA3OWMiLCJ1c2VybmFtZSI6IjYxNGI0NWQwLTQwNzEtNzBhMi0yZGNlLWRmNWM5MDU4YTM0MiJ9.N5ttE2ZrzEsecWnaUIZsTFfj_MyOUatEDzrIqCeM0maUTTOXQGhfhYRhtvzVW3NctTMwiPwMp-G8Vl_fe5wv53vt8P_233iukK09SrQRLRnNlbtZjX4sf1UucY8Gn3FTwYXH0ZGzCXbB_nipe2Xy5vdfluiQQtoP051vELFNaaLdr67v0sltyd6-HYeRjBgLpU9cTe1fvvNFHSekoXKXYlS0VmJDm3wkLDfYnZFvVcSXr0upb2bRRBVch-jOfYu-T3WsAl2_crRUFbmoQV7JdU05XXUthSOnevRyk4Uy80P4v1D_h8zfOu0uqyL1E4uwX2B3DwzBRUfv_KJUbqgmZA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Murilo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/edit-account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"edit-account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
