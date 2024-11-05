@@ -56,13 +56,14 @@ Before running the application, make sure you have the following dependencies in
 
 ## Running the Application
 
-To start the server, use the following command:
+To start the server using Docker, run the following command:
 
 ```bash
-npm start
+docker-compose up --build
 ```
 
 The server will be available at [http://localhost:3000](http://localhost:3000).
+
 
 ## Endpoints
 
