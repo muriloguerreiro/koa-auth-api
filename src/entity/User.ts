@@ -7,14 +7,11 @@ export class User {
     @PrimaryGeneratedColumn({ name: "id" })
     id!: number;
 
-    @Column({ type: "varchar", length: 255 })
+    @Column({ type: "varchar", length: 255, nullable: true })
     name?: string;
 
     @Column({ type: "varchar", length: 255, unique: true })
     email: string;
-
-    @Column({ type: "varchar", length: 255 })
-    password: string;
 
     @Column({ type: "varchar", length: 50 })
     role: UserRole;
@@ -31,9 +28,8 @@ export class User {
     @DeleteDateColumn({ name: "deleted_at", nullable: true })
     deletedAt?: Date | null;
 
-    constructor(email: string, password: string) {
+    constructor(email: string) {
         this.email = email;
-        this.password = password;
         this.role = "user";
         this.isOnboarded = false;
     }
