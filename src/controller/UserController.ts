@@ -30,4 +30,15 @@ export class UserController {
             throw new BadRequestError(`Could not retrieve user: ${error.message}`);
         }
     }
+
+    @Get('/users')
+    @UseBefore(CognitoAuthMiddleware)
+    async getAllUsers(): Promise<User[]> {
+        try {
+            const users = await this.userService.getAllUsers();
+            return users;
+        } catch (error: any) {
+            throw new BadRequestError(`Could not retrieve users: ${error.message}`);
+        }
+    }
 }
