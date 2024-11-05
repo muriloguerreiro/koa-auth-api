@@ -1,4 +1,4 @@
-import { BadRequestError, Controller, Ctx, Get, UseBefore } from 'routing-controllers';
+import { BadRequestError, Body, Controller, Ctx, Get, Put, UseBefore } from 'routing-controllers';
 import { UserService } from '../service/UserService';
 import { User } from '../entity/User';
 import { CognitoAuthMiddleware } from '../middleware/CognitoAuthMiddleware';
@@ -39,6 +39,22 @@ export class UserController {
             return users;
         } catch (error: any) {
             throw new BadRequestError(`Could not retrieve users: ${error.message}`);
+        }
+    }
+
+    @Put('/edit-account')
+    @UseBefore(CognitoAuthMiddleware)
+    async editAccount(@Ctx() context: Context, @Body() updateData: Partial<User>): Promise<User> {
+        const userId = context.state.user?.sub;
+        if (!userId) {
+            throw new BadRequestError('User ID not found in token');
+        }
+
+        try {
+            const updatedUser = await this.userService.editAccount(userId, updateData);
+            return updatedUser;
+        } catch (error: any) {
+            throw new BadRequestError(`Could not update user: ${error.message}`);
         }
     }
 }

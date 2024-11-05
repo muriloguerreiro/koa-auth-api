@@ -31,4 +31,18 @@ export class UserService {
     async getAllUsers(): Promise<User[]> {
         return await AppDataSource.getRepository(User).find();
     }
+
+    async editAccount(userId: string, updateData: Partial<User>): Promise<User> {
+        const userRepository = AppDataSource.getRepository(User);
+        const user = await userRepository.findOneBy({ id: userId });
+
+        if (!user) {
+            throw new Error(`User with id ${userId} not found`);
+        }
+
+        Object.assign(user, updateData);
+        await userRepository.save(user);
+
+        return user;
+    }
 }
